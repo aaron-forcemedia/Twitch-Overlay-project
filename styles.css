@@ -1,0 +1,20 @@
+.main-nav {
+    margin-top: 10px;
+}
+
+.main-nav a {
+    text-align: center;
+    display: block;
+    padding: 10px 15px;
+}
+.name a, 
+.main-nav a {
+    font-size: 1em;
+    color: blue; 
+    text-transform: uppercase;
+}
+
+.main-nav a:hover {
+    color: red;
+}
+/* Trial run for flexbox menu with help from Treehouse example
