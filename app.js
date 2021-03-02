@@ -8,10 +8,10 @@ const client = new tmi.Client({
 		secure: true
 	},
 	identity: {
-		username: process.env.TWITCH_USERNAME,
-		password: process.env.TWITCH_AUTH_CLIENT
+		username: 'awlurch',
+		password: 'oauth:jruce8hhvgw0yoyvj83oginniex0q2'
 	},
-	channels: [ process.env.TWITCH_USERNAME ]
+	channels: [ 'awlurch' ]
 });
 client.connect().catch(console.error);
 client.on('message', (channel, tags, message, self) => {
