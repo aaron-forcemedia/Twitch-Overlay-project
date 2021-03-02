@@ -1,4 +1,3 @@
-require('dotenv').config();
 const tmi = require('tmi.js');
 
 const client = new tmi.Client({
@@ -8,7 +7,7 @@ const client = new tmi.Client({
 		secure: true
 	},
 	identity: {
-		username: 'awlurch',
+		username: 'awlurch ',
 		password: 'oauth:jruce8hhvgw0yoyvj83oginniex0q2'
 	},
 	channels: [ 'awlurch' ]
@@ -16,7 +15,7 @@ const client = new tmi.Client({
 client.connect().catch(console.error);
 client.on('message', (channel, tags, message, self) => {
 	if(self) return;
-	console.log(channel, message);
+	console.log(channel, message, tags, self);
     if(message.toLowerCase() === '!hello') {
 		client.say(channel, `@${tags.username}, heya!`);
 	}
