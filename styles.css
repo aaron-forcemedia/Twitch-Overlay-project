@@ -1,5 +1,6 @@
 .main-nav {
     margin-top: 10px;
+    list-style-type: none;
 }
 
 .main-nav a {
@@ -12,9 +13,33 @@
     font-size: 1em;
     color: blue; 
     text-transform: uppercase;
+    text-align: center;
 }
 
 .main-nav a:hover {
     color: red;
 }
+
+ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+
+h1 {
+    display: block;
+    font-size: 2em;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 1.5em;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    text-align: center;
+}
+
 /* Trial run for flexbox menu with help from Treehouse example
+/* Adjustments made 3/5/21

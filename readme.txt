@@ -1,5 +1,5 @@
-Purpose of site is to collect & screen potential employees or volunteers to work special events. 
+The purpose of this site is to simulate a Twitch gaming overlay designed to display on screen graphics when twitch users interact with the channel's stream. 
 
-The site will direct to specific questionnaire to collect info based on the type of work applicant is looking to fulfill.
+These actions will be displayed in real time as the user interaction occurs.
 
-Readme_ver_2
+Updated: 3/5/21 after project change
