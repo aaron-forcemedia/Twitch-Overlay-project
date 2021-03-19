@@ -1,4 +1,7 @@
 
+var userName = () => prompt ('What is your user name?');
+userName();
+
 function follow() {
     
     function hide() {
@@ -10,6 +13,7 @@ function follow() {
         setTimeout(hide, 5000);  // 5 seconds
      }
     show();
+    console.log(userName);
 }
 
 function subscribe() {

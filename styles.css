@@ -40,3 +40,9 @@ h1 {
     font-weight: bold;
     text-align: center;
 }
+
+#container {
+    display: grid;
+    grid-template-columns: .5fr 1fr;
+  }
+  
