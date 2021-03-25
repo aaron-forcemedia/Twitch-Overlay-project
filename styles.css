@@ -45,6 +45,12 @@ h1 {
     display: grid;
     grid-template-columns: .5fr 1fr;
   }
+
+#like {
+    display: inline-block;
+    height: 50%;
+    width: 50%;
+}
 /*-------Media Queries------------------------*/
   @media (min-width: 769px) {
 
