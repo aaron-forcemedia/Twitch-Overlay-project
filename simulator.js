@@ -25,6 +25,7 @@ function follow() {
     var element = document.getElementById("follow_txt");
     element.appendChild(para);
     followcounter++;
+  
   return followcounter;
 }}
 //-----------------------------------
@@ -51,7 +52,8 @@ function subscribe() {
     var element = document.getElementById("subscribe_txt");
     element.appendChild(para);
     subscribecounter++;
-    return subscribecounter;
+    
+  return subscribecounter;
 }}
 //-----------------------------------
 function hide_like() {
@@ -70,14 +72,15 @@ function like() {
     document.getElementById("like_txt").style.display = "block";
     setTimeout(hide_like, 5000);  // 5 seconds
 
-    var para1 = document.createElement("span");
-    var node1 = document.createTextNode(displayName);
-    para1.appendChild(node1);
+    var para = document.createElement("span");
+    var node = document.createTextNode(displayName);
+    para.appendChild(node);
 
-    var element1 = document.getElementById("like_txt");
-    element1.appendChild(para1);
+    var element = document.getElementById("like_txt");
+    element.appendChild(para);
     likecounter++;
-    return likecounter;
+    
+  return likecounter;
 }}
 
 function info() {
