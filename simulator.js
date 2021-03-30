@@ -87,5 +87,5 @@ function info() {
     hide_like();
     hide_subscribe();
     hide_follow();
-    alert('The purpose of this application is to simulate a Twitch Overlay. The background will be transparent on the overlay and will be dropped on top of a live gaming stream via OBS (Open Broadcaster Software) Eventually, the idea is to connect this to a Twitch Chat API to collect variables and create on screen effects. Currently, a prompt is collecting the UserName variable. To simulate spam prevention the app only allows for each action to occur once.');
+    alert('The purpose of this application is to simulate a Twitch Overlay. The background will be transparent on the overlay and will be dropped on top of a live gaming stream via OBS (Open Broadcaster Software) Eventually, the idea is to connect this to a Twitch Chat API to collect variables and create on screen effects. Currently, a prompt is collecting the UserName variable. To simulate spam prevention the app only allows for each action to occur once. To restart simulation refresh the browser.');
 }
