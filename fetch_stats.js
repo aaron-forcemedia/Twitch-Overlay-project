@@ -1,7 +1,4 @@
 const fetch = require("node-fetch");
-var userName = () => prompt ('What is your user name?');
-const nameInput = userName();
-
 
 // This is the fetchStats method - which is an async function
 const fetchStats = async function(playerName) {
@@ -23,10 +20,8 @@ const fetchStats = async function(playerName) {
   }
 }
 
-let nameInput = prompt('Enter Player Name: ');
-
 // Now we we will simply call this function
-fetchStats('nameInput')
+fetchStats('AWLurch')
   .then((stats) => {
     //console.log(stats)
     playerStats = stats['playerStatistics']
