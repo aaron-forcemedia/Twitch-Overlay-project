@@ -92,11 +92,9 @@ function info() {
     alert('Total actions: '+ totalCounter + ' Thank you ' + displayName)
   }
 
-  http-server https://nykloo.com/api/PlayerInfos/Search?usernameQuery=Zoloto&page=0&pageSize=25 --cors;
-
  // This is the fetchStats method - which is an async function
-const fetchStats = async function(playerName) {
-  let response = await fetch(`https://nykloo.com/api/PlayerInfos/Search?usernameQuery=${playerName}&page=0&pageSize=25`)
+const fetchStats = async function(displayName) {
+  let response = await fetch(`https://nykloo.com/api/PlayerInfos/Search?usernameQuery=${displayName}&page=0&pageSize=25`)
   if (response.status !== 200) {
     throw new Exception('Looks like there was a problem. Status Code: ' + response.status)
   } else {
