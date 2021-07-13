@@ -84,7 +84,7 @@ function like() {
 }}
 
 function info() {
-    hide_like();
+    hide_like();                                                                                                                                                                                                                                              
     hide_subscribe();
     hide_follow();
     let totalCounter=likecounter+subscribecounter+followcounter;
@@ -92,8 +92,9 @@ function info() {
     alert('Total actions: '+ totalCounter + ' Thank you ' + displayName)
   }
 
+  http-server https://nykloo.com/api/PlayerInfos/Search?usernameQuery=Zoloto&page=0&pageSize=25 --cors;
 
-  // This is the fetchStats method - which is an async function
+/*   // This is the fetchStats method - which is an async function
 const fetchStats = async function(playerName) {
   let response = await fetch(`https://nykloo.com/api/PlayerInfos/Search?usernameQuery=${playerName}&page=0&pageSize=25`)
   if (response.status !== 200) {
@@ -149,9 +150,9 @@ const fetchStats = async function(playerName) {
     .catch((e) => {
       console.log(e)
     })
-
-    console.log(playerSkillStat)
-    console.log(careerGamesStat)
-    console.log(careerWinsStat)
-    console.log(careerKillsStat)
+ */
+    //console.log(playerSkillStat)
+    //console.log(careerGamesStat)
+    //console.log(careerWinsStat)
+    //console.log(careerKillsStat)
 
