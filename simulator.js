@@ -93,8 +93,11 @@ function info() {
   }
 
  // This is the fetchStats method - which is an async function
-const fetchStats = async function(displayName) {
-  let response = await fetch(`https://nykloo.com/api/PlayerInfos/Search?usernameQuery=${displayName}&page=0&pageSize=25`)
+ const fetchStats = async function(displayName) {
+  let response = await fetch(`https://nykloo.com/api/PlayerInfos/Search?usernameQuery=${displayName}&page=0&pageSize=25`,
+      {headers: {'Origin':'*',},
+       mode: 'no-cors',
+       referrerPolicy: 'no-referrer'})
   if (response.status !== 200) {
     throw new Exception('Looks like there was a problem. Status Code: ' + response.status)
   } else {
@@ -111,6 +114,12 @@ const fetchStats = async function(displayName) {
     return statsResponseJson
   }
 }
+
+let playerSkillStat = 0;
+let careerGamesStat = 0;
+let careerKillsStat = 0;
+let CareerGamesPlayed = 0;
+let careerWinsStat = 0;
 
   // Now we we will simply call this function
   fetchStats(displayName)
