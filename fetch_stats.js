@@ -21,7 +21,7 @@ const fetchStats = async function(playerName) {
 }
 
 // Now we we will simply call this function
-fetchStats('zoloto')
+fetchStats('AWLurch')
   .then((stats) => {
     //console.log(stats)
     playerStats = stats['playerStatistics']
