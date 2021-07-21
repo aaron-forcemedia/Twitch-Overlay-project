@@ -121,6 +121,10 @@ let careerGamesStat = 0;
 let careerKillsStat = 0;
 let CareerGamesPlayed = 0;
 let careerWinsStat = 0;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 86eebec073c2dd0207be29b6db82ca010718edac
   // Now we we will simply call this function
   fetchStats(displayName)
     .then((stats) => {
@@ -162,4 +166,3 @@ let careerWinsStat = 0;
     console.log(careerGamesStat)
     console.log(careerWinsStat)
     console.log(careerKillsStat)
-
