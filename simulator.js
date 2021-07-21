@@ -14,7 +14,7 @@ function follow() {
 
     document.getElementById("follow_gif").style.display = "block";
     setTimeout(hide_follow, 5000);  // 5 seconds
-    
+
     document.getElementById("follow_txt").style.display = "block";
     setTimeout(hide_follow, 5000);  // 5 seconds
 
@@ -25,7 +25,7 @@ function follow() {
     var element = document.getElementById("follow_txt");
     element.appendChild(para);
     followcounter++;
-  
+
   return followcounter;
 }}
 //-----------------------------------
@@ -41,7 +41,7 @@ function subscribe() {
 
     document.getElementById("subscribe_gif").style.display = "block";
     setTimeout(hide_subscribe, 5000);  // 5 seconds
-        
+
     document.getElementById("subscribe_txt").style.display = "block";
     setTimeout(hide_subscribe, 5000);  // 5 seconds
 
@@ -52,7 +52,7 @@ function subscribe() {
     var element = document.getElementById("subscribe_txt");
     element.appendChild(para);
     subscribecounter++;
-    
+
   return subscribecounter;
 }}
 //-----------------------------------
@@ -68,7 +68,7 @@ function like() {
 
     document.getElementById("like_gif").style.display = "block";
     setTimeout(hide_like, 5000);  // 5 seconds
-    
+
     document.getElementById("like_txt").style.display = "block";
     setTimeout(hide_like, 5000);  // 5 seconds
 
@@ -79,12 +79,12 @@ function like() {
     var element = document.getElementById("like_txt");
     element.appendChild(para);
     likecounter++;
-    
+
   return likecounter;
 }}
 
 function info() {
-    hide_like();                                                                                                                                                                                                                                              
+    hide_like();
     hide_subscribe();
     hide_follow();
     let totalCounter=likecounter+subscribecounter+followcounter;
@@ -94,17 +94,18 @@ function info() {
 
  // This is the fetchStats method - which is an async function
  const fetchStats = async function(displayName) {
-  let response = await fetch(`https://nykloo.com/api/PlayerInfos/Search?usernameQuery=${displayName}&page=0&pageSize=25`,
-      {headers: {'Origin':'*',},
-       mode: 'no-cors',
-       referrerPolicy: 'no-referrer'})
+  // CORS proxy usage: https://blog.grida.co/cors-anywhere-for-everyone-free-reliable-cors-proxy-service-73507192714e
+  let response = await fetch(`https://cors.bridged.cc/https://nykloo.com/api/PlayerInfos/Search?usernameQuery=${displayName}&page=0&pageSize=25`,
+      {headers: { "X-Requested-With": "XMLHttpRequest" }})
+
   if (response.status !== 200) {
     throw new Exception('Looks like there was a problem. Status Code: ' + response.status)
   } else {
     let responseJson = await response.json()
     idName = responseJson[0]['playFabId']
 
-    let statsResponse = await fetch(`https://nykloo.com/api/PlayerStats/Stats/${idName}`)
+    let statsResponse = await fetch(`https://cors.bridged.cc/https://nykloo.com/api/PlayerStats/Stats/${idName}`,
+      {headers: { "X-Requested-With": "XMLHttpRequest" }})
 
     if (statsResponse.status !== 200) {
       throw new Exception('Looks like there was a problem. Status Code: ' + statsResponse.status)
@@ -133,7 +134,7 @@ let careerWinsStat = 0;
           console.log('Player Skill: ' + stat['value'])
           var playerSkillStat = stat['value'];
           return playerSkillStat;
-        } else {        
+        } else {
         if (stat['statisticName'] == 'CareerKills') {
           console.log('Career Kills: ' + stat['value'])
           var careerKillsStat = stat['value'];
@@ -157,9 +158,8 @@ let careerWinsStat = 0;
     .catch((e) => {
       console.log(e)
     })
- 
+
     console.log(playerSkillStat)
     console.log(careerGamesStat)
     console.log(careerWinsStat)
     console.log(careerKillsStat)
-
