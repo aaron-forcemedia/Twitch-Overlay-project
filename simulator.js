@@ -121,12 +121,10 @@ let careerGamesStat = 0;
 let careerKillsStat = 0;
 let CareerGamesPlayed = 0;
 let careerWinsStat = 0;
-<<<<<<< HEAD
-=======
+let statsArray = [];
 
->>>>>>> 86eebec073c2dd0207be29b6db82ca010718edac
   // Now we we will simply call this function
-  fetchStats(displayName)
+  fetchStats(displayName, statsArray)
     .then((stats) => {
       //console.log(stats)
       playerStats = stats['playerStatistics']
@@ -134,35 +132,39 @@ let careerWinsStat = 0;
       playerStats.forEach(function(stat) {
         // console.log('Current stat: ', stat)
         if (stat['statisticName'] == 'PlayerSkill') {
-          console.log('Player Skill: ' + stat['value'])
+          console.log('Player Skill: ' + stat['value']);
           var playerSkillStat = stat['value'];
+          statsArray.push(playerSkillStat);
           return playerSkillStat;
         } else {
         if (stat['statisticName'] == 'CareerKills') {
           console.log('Career Kills: ' + stat['value'])
           var careerKillsStat = stat['value'];
+          statsArray.push(careerKillsStat);
           return careerKillsStat;
         } else {
         if (stat['statisticName'] == 'CareerWins') {
           console.log('Career  Wins: ' + stat['value'])
           var careerWinsStat = stat['value'];
+          statsArray.push(careerWinsStat);
           return careerWinsStat;
         } else {
         if (stat['statisticName'] == 'CareerGamesPlayed') {
           console.log('Career Games: ' + stat['value'])
           var careerGamesStat = stat['value'];
-          return careerGamesStat;
+          statsArray.push(careerGamesStat);
+          //console.log(statsArray);
+          return statsArray;
         } else {
           // Do something with the others?
           //console.log(stat['statisticName'])
         }}}}
       });
-    })
+      })
     .catch((e) => {
       console.log(e)
     })
 
-    console.log(playerSkillStat)
-    console.log(careerGamesStat)
-    console.log(careerWinsStat)
-    console.log(careerKillsStat)
+  console.log(statsArray)
+  console.log(statsArray[0])
+    
