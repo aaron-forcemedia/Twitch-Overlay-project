@@ -1,3 +1,6 @@
+var userName = () => prompt ('What user name would you like to search?');
+const displayName = userName();
+const list = document.getElementsByClassName('stats-array')[0];
 
 //-----------------------------------
 function hide_follow() {
@@ -27,7 +30,7 @@ function follow() {
   return followcounter;
 }}
 //-----------------------------------
-function hide_subscribe() {
+/* function hide_subscribe() {
     document.getElementById("subscribe_gif").style.display = "none";
     document.getElementById("subscribe_txt").style.display = "none";
 }
@@ -52,7 +55,7 @@ function subscribe() {
     subscribecounter++;
 
   return subscribecounter;
-}}
+}} */
 //-----------------------------------
 function hide_like() {
     document.getElementById("like_gif").style.display = "none";
@@ -122,10 +125,6 @@ let careerWinsStat = 0;
 let statsArray = [];
 
 function getStats() {
-  var userName = () => prompt ('What user name would you like to search?');
-  const displayName = userName();
-  const list = document.getElementsByClassName('stats-array')[0];
-
   fetchStats(displayName, statsArray)
     .then((stats) => {
       playerStats = stats['playerStatistics']
@@ -168,4 +167,5 @@ function getStats() {
       console.log(e)
     })
 }
+console.log(subscribecounter);
     
