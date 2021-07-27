@@ -1,6 +1,4 @@
 
-var userName = () => prompt ('What is your user name?');
-const displayName = userName();
 //-----------------------------------
 function hide_follow() {
     document.getElementById("follow_gif").style.display = "none";
@@ -96,7 +94,7 @@ function info() {
  const fetchStats = async function(displayName) {
   // CORS proxy usage: https://blog.grida.co/cors-anywhere-for-everyone-free-reliable-cors-proxy-service-73507192714e
   let response = await fetch(`https://cors.bridged.cc/https://nykloo.com/api/PlayerInfos/Search?usernameQuery=${displayName}&page=0&pageSize=25`,
-      {headers: { "X-Requested-With": "XMLHttpRequest" }})
+      {headers: { "X-Requested-With": "XMLHttpRequest" }}) //Had minor help with this section via GitHub
 
   if (response.status !== 200) {
     throw new Exception('Looks like there was a problem. Status Code: ' + response.status)
@@ -123,14 +121,15 @@ let CareerGamesPlayed = 0;
 let careerWinsStat = 0;
 let statsArray = [];
 
-  // Now we we will simply call this function
+function getStats() {
+  var userName = () => prompt ('What user name would you like to search?');
+  const displayName = userName();
+  const list = document.getElementsByClassName('stats-array')[0];
+
   fetchStats(displayName, statsArray)
     .then((stats) => {
-      //console.log(stats)
       playerStats = stats['playerStatistics']
-      //console.log(playerStats)
       playerStats.forEach(function(stat) {
-        // console.log('Current stat: ', stat)
         if (stat['statisticName'] == 'PlayerSkill') {
           console.log('Player Skill: ' + stat['value']);
           var playerSkillStat = stat['value'];
@@ -157,14 +156,16 @@ let statsArray = [];
           return statsArray;
         } else {
           // Do something with the others?
-          //console.log(stat['statisticName'])
         }}}}
       });
+      statsArray.forEach(item => {
+            const newListItem = document.createElement('li');
+            newListItem.innerText = item;
+            list.appendChild(newListItem);
+          })
       })
     .catch((e) => {
       console.log(e)
     })
-
-  console.log(statsArray)
-  console.log(statsArray[0])
+}
     
