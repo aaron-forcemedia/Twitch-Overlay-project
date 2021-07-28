@@ -6,12 +6,10 @@
 .main-nav a {
     text-align: center;
     display: block;
-    padding: 10px 15px;
 }
 .name a, 
 .main-nav a {
     font-size: 1em;
-    color: blue; 
     text-transform: uppercase;
     text-align: center;
 }
@@ -50,6 +48,10 @@ h1 {
     display: inline-block;
     height: 50%;
     width: 50%;
+}
+
+.padding {
+    margin: 20px;
 }
 
 /*-------Media Queries------------------------*/

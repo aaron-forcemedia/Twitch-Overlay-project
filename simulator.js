@@ -127,44 +127,61 @@ let careerWinsStat = 0;
 let statsArray = [];
 
 function getStats() {
+  statsArray = [];
   fetchStats(displayName, statsArray)
     .then((stats) => {
       playerStats = stats['playerStatistics']
       playerStats.forEach(function(stat) {
         if (stat['statisticName'] == 'PlayerSkill') {
           console.log('Player Skill: ' + stat['value']);
-          var playerSkillStat = stat['value'];
-          statsArray.push(playerSkillStat);
+          playerSkillStat = stat['value'];
+          statsArray.push({
+            'name': 'Player Skill',
+            'value': playerSkillStat
+          });
           return playerSkillStat;
-        } else {
-        if (stat['statisticName'] == 'CareerKills') {
+        } else if (stat['statisticName'] == 'CareerKills') {
           console.log('Career Kills: ' + stat['value'])
-          var careerKillsStat = stat['value'];
-          statsArray.push(careerKillsStat);
+          careerKillsStat = stat['value'];
+          statsArray.push({
+            'name': 'Career Kills',
+            'value': careerKillsStat
+          });
           return careerKillsStat;
-        } else {
-        if (stat['statisticName'] == 'CareerWins') {
+        } else if (stat['statisticName'] == 'CareerWins') {
           console.log('Career  Wins: ' + stat['value'])
-          var careerWinsStat = stat['value'];
-          statsArray.push(careerWinsStat);
+          careerWinsStat = stat['value'];
+          statsArray.push({
+            'name': 'Career  Wins',
+            'value': careerWinsStat
+          });
           return careerWinsStat;
-        } else {
-        if (stat['statisticName'] == 'CareerGamesPlayed') {
+        } else if (stat['statisticName'] == 'CareerGamesPlayed') {
           console.log('Career Games: ' + stat['value'])
-          var careerGamesStat = stat['value'];
-          statsArray.push(careerGamesStat);
+          careerGamesStat = stat['value'];
+          statsArray.push({
+            'name': 'Career Games',
+            'value': careerGamesStat
+          });
           //console.log(statsArray);
           return statsArray;
         } else {
           // Do something with the others?
-        }}}}
+          console.log(stat);
+        }
       });
+      list.innerHTML = '';
+      M.toast({html: 'New Data loaded'})
       statsArray.forEach(item => {
-            const newListItem = document.createElement('li');
-            newListItem.innerText = item;
-            list.appendChild(newListItem);
-          })
+        const newListItem = document.createElement('li');
+        newListItem.innerText = item['name'] + ' ' + item['value'];
+        list.appendChild(newListItem);
       })
+      const newListItem = document.createElement('li');
+      var avgKills = Math.round(careerKillsStat/careerGamesStat*100)/100;
+      newListItem.innerText = 'Avg Kills/Game: ' + avgKills;
+      list.appendChild(newListItem);
+    })
     .catch((e) => {
       console.log(e)
     })
