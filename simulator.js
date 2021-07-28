@@ -29,13 +29,15 @@ function follow() {
 
   return followcounter;
 }}
+
+let subscribecounter = 0;
+
 //-----------------------------------
 /* function hide_subscribe() {
     document.getElementById("subscribe_gif").style.display = "none";
     document.getElementById("subscribe_txt").style.display = "none";
 }
 
-let subscribecounter = 0;
 
 function subscribe() {
   while (subscribecounter <1){
@@ -86,7 +88,7 @@ function like() {
 
 function info() {
     hide_like();
-    hide_subscribe();
+    //hide_subscribe();
     hide_follow();
     let totalCounter=likecounter+subscribecounter+followcounter;
     alert('The purpose of this application is to simulate a Twitch Overlay. The background will be transparent on the overlay and will be dropped on top of a live gaming stream via OBS (Open Broadcaster Software) Eventually, the idea is to connect this to a Twitch Chat API to collect variables and create on screen effects. Currently, a prompt is collecting the UserName variable. To simulate spam prevention the app only allows for each action to occur once. To restart simulation refresh the browser.');
