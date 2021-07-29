@@ -1,5 +1,3 @@
-var userName = () => prompt ('What user name would you like to search?');
-const displayName = userName();
 const list = document.getElementsByClassName('stats-array')[0];
 
 //-----------------------------------
@@ -24,7 +22,7 @@ function follow() {
     para.appendChild(node);
 
     var element = document.getElementById("follow_txt");
-    element.appendChild(para);
+    //element.appendChild(para);
     followcounter++;
 
   return followcounter;
@@ -80,7 +78,7 @@ function like() {
     para.appendChild(node);
 
     var element = document.getElementById("like_txt");
-    element.appendChild(para);
+    //element.appendChild(para);
     likecounter++;
 
   return likecounter;
@@ -127,6 +125,9 @@ let careerWinsStat = 0;
 let statsArray = [];
 
 function getStats() {
+  var userName = () => prompt ('Which players stats would you like to display i.e. zoloto_, j0n_cl0ud, datbyte ?');
+  const displayName = userName();
+
   statsArray = [];
   fetchStats(displayName, statsArray)
     .then((stats) => {
@@ -185,6 +186,17 @@ function getStats() {
     .catch((e) => {
       console.log(e)
     })
+}    
+
+var winRatePer;
+
+function winRate() {
+  var winsTotal =  prompt ('What is your current Total of Wins?');
+  var gamesPlayed = prompt ('How many career games have you played?');
+  winRatePer = winsTotal/gamesPlayed;
+  var str = ('Your current win rate is ');
+  alert(str + winRatePer);
+  var wordCount = str.split(" ").length;
+  alert('That last alert box had ' + (wordCount-1) + ' words') 
+  return winRatePer;
 }
-console.log(subscribecounter);
-    
