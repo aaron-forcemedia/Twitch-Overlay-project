@@ -35,7 +35,7 @@ cups to grams)
 -Create and use a function that accepts two or more values (parameters), calculates or determines 
 a new value based on those inputs, and returns a new value
 	(Technically the function that makes the API requests takes one parameter and then retrieves a 
-variable from the first API and then requests data from a second API so this may qualify)
+variable from the first API and then requests data from a second API using that variable so this may qualify)
 
 
 
